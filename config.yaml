@@ -1,0 +1,44 @@
+outputs:
+  tokenized_data: "/home/vomolaoye/src/public/sllama/data"
+  pretrained_models: "/home/vomolaoye/src/public/sllama/pretrained_models"
+babylm:
+  data_path: "/home/vomolaoye/src/2024/gpt2again/babylm/babylm/data"
+  data_sizes: ['10M','100M']
+  data_splits: ['test','train']
+  data_forms : ['bnc_spoken','childes','gutenberg','open_subtitles','simple_wiki','switchboard']
+training:
+  eval_interval: 250
+  log_interval: 10
+  eval_iters: 150
+  eval_only: False 
+  always_save_checkpoint: False 
+  init_from: 'scratch' # 'scratch' or 'resume' or 'gpt2*'
+  wandb_log: True 
+  wandb_project : 'sllama'
+  wandb_run_name: 'sllama' 
+  gradient_accumulation_steps:  2 
+  batch_size : 128 
+  block_size : 256
+  dropout: 0.1 
+  bias: False 
+  # adamw optimizer
+  learning_rate: 0.0004 
+  max_iters: 3000 
+  weight_decay: 0.0
+  layer_sharing: = False # the embedding and output layers
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0 # clip gradients at this value, or disable if == 0.0
+  # learning rate decay settings
+  decay_lr: True # whether to decay the learning rate
+  warmup_iters: 200 # how many steps to warm up for
+  lr_decay_iters: 5000 # should be ~= max_iters per Chinchilla
+  min_lr: 0.00004 # minimum learning rate, should be ~= learning_rate/10 per Chinchilla
+  # DDP settings
+  backend : 'nccl' # 'nccl', 'gloo', etc.
+  # system
+  device: 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
+  dtype: 'bfloat16' 
+  compile: True # use PyTorch 2.0 to compile the model to be faster
+  save_weights: False
+  train_or_dev: 'train'
