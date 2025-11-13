@@ -1,8 +1,8 @@
 from trainer import Trainer
 from data_loader import BaseDataLoader
 from trainer_config import TrainerConfig
-from sllama.modeling_sllama import SLLamaForCausalLM, SLLamaForSequenceClassification
-from sllama.configuration_sllama import SLLamaConfig
+from src.modeling_sllama import SLLamaForCausalLM, SLLamaForSequenceClassification
+from src.configuration_sllama import SLLamaConfig
 import sys
 from transformers import LlamaTokenizer
 from utils import load_config
