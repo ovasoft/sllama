@@ -2,3 +2,5 @@ torch
 wandb
 numpy
 transformers
+datasets
+sentencepiece

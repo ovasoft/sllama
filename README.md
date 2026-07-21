@@ -38,7 +38,7 @@ These techniques allow SLlama to remain lightweight while preserving expressive 
 ```bash
 git clone https://github.com/ovasoft/sllama.git
 cd sllama
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 ## Babylm Dataset
 Download the [Babylm dataset](https://babylm.github.io/) into the path specified in config.yaml
